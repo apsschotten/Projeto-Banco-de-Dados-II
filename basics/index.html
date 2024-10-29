@@ -15,47 +15,50 @@
         </header>
         <main>
             <table class="cpttable">
-                <thead>
-                <tr>
-                    <th className="btn">Seletor</th>
-                    <th>Imagem</th>
-                    <th>Nome</th>
-                    <th>Nome/s Alternativo/s</th>
-                    <th>Primeiro Avistamento</th>
-                    <th>Último Avistamento</th>
-                    <th>Localidade/s</th>
-                    <th className="dc">Descrição Geral</th>
-                    <th>Status</th>
-                    <th>Possíveis Explicações</th>
-                <tr>
-                </thead>
-            </table>
-            <div id='cryptids_list'>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Imagem</th>
+                            <th>Nome</th>
+                            <th>Nome/s Alternativo/s</th>
+                            <th>Primeiro Avistamento</th>
+                            <th>Último Avistamento</th>
+                            <th>Localidade/s</th>
+                            <th class="dc">Descrição Geral</th>
+                            <th>Status</th>
+                            <th>Possíveis Explicações</th>
+                        <tr>
+                    </thead>
+                    <tbody id='cryptids_list'>
+                    </tbody>
+                </table>
+                <button onClick="mostrar()" id="temp">Clique aqui para descobrir mais sobre o mundo da criptozoologia.</button>
                 <script>
-                    fetch('/criptideos')
-                        .then(response => response.json())
-                        .then(data => {
-                            const cptdsList = data.map(
-                                cptds => `<table class="cpttable"> <tbody>
+                    function mostrar() {
+                        fetch('/criptideos')
+                            .then(response => response.json())
+                            .then(data => {
+                                const cptdsList = data.map(
+                                    cptds => `
                     <tr key=${cptds.codigo}>
-                        <td className="btn"><button onClick="">Select</button></td>
                         <td><img src="${cptds.image}"></td>
                         <td>${cptds.nome}</td>
                         <td>${cptds.nomesalt}</td>
                         <td>${cptds.primavist}</td>
                         <td>${cptds.ultavist}</td>
                         <td>${cptds.habitat}</td>
-                        <td className="dc">${cptds.sobre}</td>
+                        <td class="dc">${cptds.sobre}</td>
                         <td>${cptds.status}</td>
                         <td>${cptds.posexp}</td>
-                    </tr></tbody>
-                </table>`
-                            ).join('');
-                            document.getElementById('cryptids_list').innerHTML = `<ul>${cptdsList}</ul>`;
-                        })
-                        .catch(error => console.error('Error occurred:', error));
+                    </tr>`
+                                ).join('');
+                                document.getElementById('cryptids_list').innerHTML = `<ul>${cptdsList}</ul>`;
+                            })
+                            .catch(error => console.error('Error occurred:', error));
+                            const elem = document.getElementById('temp');
+                            elem.style.display = 'none';
+                    }
                 </script>
-            </div>
         </main>
         <footer>
             <p>Desenvolvido por Ana Paula S. Schotten - INFO 4B</p>
