@@ -11,13 +11,49 @@
 <body>
     <div className="divBG">
         <header>
-            <h1></h1>
+            <h1>Lista de Criptídeos</h1>
         </header>
         <main>
-            <div id='cryptids_list'></div>
-            <script>
-                
-            </script>
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Imagem</th>
+                    <th>Nome</th>
+                    <th>Nome/s Alternativo/s</th>
+                    <th>Primeiro Avistamento</th>
+                    <th>Último Avistamento</th>
+                    <th>Localidade/s</th>
+                    <th>Descrição Geral</th>
+                    <th>Status</th>
+                    <th>Possíveis Explicações</th>
+                <tr>
+            </table>
+            <div id='cryptids_list'>
+                <script>
+                    fetch('/criptideos')
+                        .then(response => response.json())
+                        .then(data => {
+                            const cptdsList = data.map(
+                                cptds => `<table>
+                    <tr key=${cptds.codigo}>
+                        <td>${cptds.codigo}</td>
+                        <td><img src="${cptds.image}"></td>
+                        <td>${cptds.nome}</td>
+                        <td>${cptds.nomesalt}</td>
+                        <td>${cptds.primavist}</td>
+                        <td>${cptds.ultavist}</td>
+                        <td>${cptds.habitat}</td>
+                        <td>${cptds.sobre}</td>
+                        <td>${cptds.status}</td>
+                        <td>${cptds.posexp}</td>
+                    </tr>
+                </table>`
+                            ).join('');
+                            document.getElementById('cryptids_list').innerHTML = `<ul>${cptdsList}</ul>`;
+                        })
+                        .catch(error => console.error('Error occurred:', error));
+                </script>
+            </div>
         </main>
         <footer>
             <p>Desenvolvido por Ana Paula S. Schotten - INFO 4B</p>

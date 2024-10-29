@@ -7,7 +7,10 @@ body{
     overflow-y: scroll;
 }
 
-.divBG{
-    background-color: #ebebeb;
-    border-radius: 25px;
+table{
+    row-gap: 100px;
+}
+
+img{
+    height: 200px;
 }
