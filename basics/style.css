@@ -12,5 +12,9 @@ table{
 }
 
 img{
-    height: 200px;
+    width: 200px;
+}
+
+#divBG{
+    background-color: rgb(245, 245, 245);
 }
