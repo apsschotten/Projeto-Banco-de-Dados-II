@@ -1,0 +1,13 @@
+body{
+    background: repeating-linear-gradient(to right,
+    #4b9b7c 0px,
+    #4b9b7c 20px,
+    #a6d8c8 20px,
+    #a6d8c8 40px);
+    overflow-y: scroll;
+}
+
+.divBG{
+    background-color: #ebebeb;
+    border-radius: 25px;
+}
