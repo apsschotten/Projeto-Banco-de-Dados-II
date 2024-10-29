@@ -7,14 +7,42 @@ body{
     overflow-y: scroll;
 }
 
-table{
-    row-gap: 100px;
+.btn{
+    width: 50px;
+    }
+    
+    .dc{
+    width: 150px;
+    }
+
+.cpttable {
+    border: solid 1px #DDEEEE;
+    border-collapse: collapse;
+    border-spacing: 0;
+    font: normal 13px Arial, sans-serif;
+    overflow-x: scroll;
 }
+.cpttable thead th {
+    background-color: #DDEFEF;
+    border: solid 1px #DDEEEE;
+    color: #336B6B;
+    padding: 10px;
+    text-align: centers;
+    text-shadow: 1px 1px 1px #fff;
+    width: 100px;
+}
+.cpttable tbody td {
+    border: solid 1px #DDEEEE;
+    color: #333;
+    padding: 10px;
+    text-shadow: 1px 1px 1px #fff;
+    background-color: #fff;
+    width: 100px;
+    text-align: justify;
+}
+
+
 
 img{
-    width: 200px;
-}
-
-#divBG{
-    background-color: rgb(245, 245, 245);
+    width: 100px;
 }
